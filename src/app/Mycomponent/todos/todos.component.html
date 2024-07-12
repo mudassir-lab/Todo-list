@@ -1,0 +1,14 @@
+<app-add-todo (addTodo)="todoAdd($event)"></app-add-todo>
+<h4>Your Todos</h4>
+<div class="container" *ngIf="this.todos.length===0; else noCourses"> No todos to show
+</div>
+
+<ng-template #noCourses>
+    <div class="container" *ngFor="let todo of todos">
+        <!-- <li>{{todo.srno}} - {{todo.title}} - {{todo.desc}} - {{todo.active}}</li> -->
+        <app-todo-item [todo]="todo" class="my-3" (todoDelete)="deleteTodo($event)" (todoToggle)="toggleTodo($event)"> </app-todo-item>
+
+
+    </div>
+
+</ng-template>
